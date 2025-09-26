@@ -1,6 +1,7 @@
 import networkx as nx
 from collections import Counter
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 def componentes_conexas(G: nx.Graph):
@@ -27,6 +28,14 @@ def grau_ponderado_medio(G: nx.Graph):
 
 def grau_medio(G: nx.Graph):
     return float(sum(dict(G.degree()).values()) / G.number_of_nodes())
+
+
+def variancia_graus(G:nx.Graph):
+    degrees = []
+    for _, degree in G.degree():
+        degrees.append(degree)
+    degrees = np.array(degrees)
+    return float(np.var(degrees))
 
 
 def diametro(G: nx.Graph):
