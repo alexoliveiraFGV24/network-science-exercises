@@ -48,6 +48,13 @@ def diametro(G: nx.Graph):
         return nx.diameter(subG)
 
 
+"""
+Dependendo do propósito, melhor definir assim:
+def centralidade_grau(G: nx.Graph):
+    A = nx.adjacency_matrix(G)
+    ones = np.ones(len(A))
+    return A@ones
+"""
 def centralidade_grau(G: nx.Graph):
     return nx.degree_centrality(G)
 
